@@ -22,7 +22,7 @@ public class UserManualStepsReader extends ChainOfRespElement{
 			reader.beginArray();
 			while (reader.hasNext()) {
 				reader.beginObject();
-				userManualData.append(readUserManualStepEntry(reader)).append("\n");
+				userManualData.append(readEntry(reader)).append("\n");
 				reader.endObject();
 			}
 			userManualData.append("\n");
@@ -38,7 +38,7 @@ public class UserManualStepsReader extends ChainOfRespElement{
 		return userManualData;
 	}
 
-	private String readUserManualStepEntry(JsonReader reader) throws IOException {
+	private String readEntry(JsonReader reader) throws IOException {
 		String stepTitle = null;
 		String stepImage = null;
 		String stepText = null;

@@ -21,7 +21,7 @@ public class RescueMedicinePresentationsReader extends ChainOfRespElement{
 			reader.beginArray();
 			while (reader.hasNext()) {
 				reader.beginObject();
-				rescueMedicinePresentationData.append(readRescueMedicinePresentationEntry(reader)).append("\n");
+				rescueMedicinePresentationData.append(readEntry(reader)).append("\n");
 				reader.endObject();
 			}
 			rescueMedicinePresentationData.append("\n");
@@ -37,7 +37,7 @@ public class RescueMedicinePresentationsReader extends ChainOfRespElement{
 		return rescueMedicinePresentationData;
 	}
 
-	private String readRescueMedicinePresentationEntry(JsonReader reader) throws IOException {
+	private String readEntry(JsonReader reader) throws IOException {
 		String medRef = null;
 		String aiRef = null;
 		String inhRef = null;

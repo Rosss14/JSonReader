@@ -19,7 +19,7 @@ public class InhalersReader extends ChainOfRespElement{
 			reader.beginArray();
 			while (reader.hasNext()) {
 				reader.beginObject();
-				inhalerData.append(readInhalerEntry(reader)).append("\n");
+				inhalerData.append(readEntry(reader)).append("\n");
 				reader.endObject();
 			}
 			inhalerData.append("\n");
@@ -35,7 +35,7 @@ public class InhalersReader extends ChainOfRespElement{
 		return inhalerData;
 	}
 	
-	private String readInhalerEntry(JsonReader reader) throws IOException {
+	private String readEntry(JsonReader reader) throws IOException {
 		String inhalerName = null;
 		String inhalerImage = null;
 		while (reader.hasNext()) {

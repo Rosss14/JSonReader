@@ -22,7 +22,7 @@ public class MedicinePresentationsReader extends ChainOfRespElement{
 			reader.beginArray();
 			while (reader.hasNext()) {
 				reader.beginObject();
-				medicinePresentationData.append(readMedicinePresentationEntry(reader)).append("\n");
+				medicinePresentationData.append(readEntry(reader)).append("\n");
 				reader.endObject();
 			}
 			medicinePresentationData.append("\n");
@@ -38,7 +38,7 @@ public class MedicinePresentationsReader extends ChainOfRespElement{
 		return medicinePresentationData;
 	}
 	
-	private String readMedicinePresentationEntry(JsonReader reader) throws IOException {
+	private String readEntry(JsonReader reader) throws IOException {
 		String medRef = null;
 		String aiRef = null;
 		String inhRef = null;

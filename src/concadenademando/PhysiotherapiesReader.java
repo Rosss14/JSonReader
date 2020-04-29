@@ -19,7 +19,7 @@ public class PhysiotherapiesReader extends ChainOfRespElement{
 			reader.beginArray();
 			while (reader.hasNext()) {
 				reader.beginObject();
-				physiotherapyData.append(readPhysiotherapyEntry(reader)).append("\n");
+				physiotherapyData.append(readEntry(reader)).append("\n");
 				reader.endObject();
 			}
 			physiotherapyData.append("\n");
@@ -35,7 +35,7 @@ public class PhysiotherapiesReader extends ChainOfRespElement{
 		return physiotherapyData;
 	}
 	
-	private String readPhysiotherapyEntry(JsonReader reader) throws IOException {
+	private String readEntry(JsonReader reader) throws IOException {
 		String physioName = null;
 		String physioImage = null;
 		while (reader.hasNext()) {

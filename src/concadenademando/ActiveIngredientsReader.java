@@ -18,7 +18,7 @@ public class ActiveIngredientsReader extends ChainOfRespElement{
 			reader.beginArray();
 			while (reader.hasNext()) {
 				reader.beginObject();
-				activeIngrData.append(readActiveIngredientEntry(reader)).append("\n");
+				activeIngrData.append(readEntry(reader)).append("\n");
 				reader.endObject();
 			}
 			activeIngrData.append("\n");
@@ -34,7 +34,7 @@ public class ActiveIngredientsReader extends ChainOfRespElement{
 		return activeIngrData;
 	}
 	
-	private String readActiveIngredientEntry(JsonReader reader) throws IOException { 
+	private String readEntry(JsonReader reader) throws IOException { 
 		String actIngrName = null;
 		while (reader.hasNext()) {
 			String name = reader.nextName();

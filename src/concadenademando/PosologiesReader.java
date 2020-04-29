@@ -19,7 +19,7 @@ public class PosologiesReader extends ChainOfRespElement{
 			reader.beginArray();
 			while (reader.hasNext()) {
 				reader.beginObject();
-				posologyData.append(readPosologyEntry(reader)).append("\n");
+				posologyData.append(readEntry(reader)).append("\n");
 				reader.endObject();
 			}
 			posologyData.append("\n");
@@ -35,7 +35,7 @@ public class PosologiesReader extends ChainOfRespElement{
 		return posologyData;
 	}
 	
-	private String readPosologyEntry(JsonReader reader) throws IOException {
+	private String readEntry(JsonReader reader) throws IOException {
 		String posName = null;
 		while (reader.hasNext()) {
 			String name = reader.nextName();

@@ -22,7 +22,7 @@ public class UserManualPhysioStepsReader extends ChainOfRespElement{
 			reader.beginArray();
 			while (reader.hasNext()) {
 				reader.beginObject();
-				userManualPhysioData.append(readUserManualPhysioStepEntry(reader)).append("\n");
+				userManualPhysioData.append(readEntry(reader)).append("\n");
 				reader.endObject();
 			}
 			userManualPhysioData.append("\n");
@@ -38,7 +38,7 @@ public class UserManualPhysioStepsReader extends ChainOfRespElement{
 		return userManualPhysioData;
 	}
 
-	private String readUserManualPhysioStepEntry(JsonReader reader) throws IOException {
+	private String readEntry(JsonReader reader) throws IOException {
 		String stepTitle = null;
 		String stepImage = null;
 		String stepText = null;

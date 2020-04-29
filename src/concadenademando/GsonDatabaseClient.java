@@ -7,8 +7,7 @@ public class GsonDatabaseClient {
 
 	public static void main(String[] args) {
 		try{
-			UserManualStepsReader userManSteps = new UserManualStepsReader(null);
-			UserManualPhysioStepsReader userManPhysioSteps = new UserManualPhysioStepsReader(userManSteps);
+			UserManualPhysioStepsReader userManPhysioSteps = new UserManualPhysioStepsReader(null);
 			RescueMedicinePresentationsReader rescMedPres = new RescueMedicinePresentationsReader(userManPhysioSteps);
 			MedicinePresentationsReader medPres = new MedicinePresentationsReader(rescMedPres);
 			PosologiesReader posologies = new PosologiesReader(medPres);
@@ -16,7 +15,9 @@ public class GsonDatabaseClient {
 			PhysiotherapiesReader physios = new PhysiotherapiesReader(inhalers);
 			ActiveIngredientsReader actIngrs = new ActiveIngredientsReader(physios);
 			MedicinesReader meds = new MedicinesReader(actIngrs);
-			DatabaseJSonReader dbjs = new DatabaseJSonReader(meds);
+			UserManualStepsReader userManSteps = new UserManualStepsReader(meds);
+			
+			DatabaseJSonReader dbjs = new DatabaseJSonReader(userManSteps);
 
 			try {
 				System.out.println(dbjs.parse("./datos.json"));
